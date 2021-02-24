@@ -18,8 +18,11 @@ Things I like
 Things I don't like
 - Built on sphinx which is a much harder to understand documentation system compared to a static site generator. 
 
+How to update the docs
 
-How to make it work
+`make docs`
+
+How to make it work from scratch
 - put .gitignore (to ignore the temporary build assets), _config.yml, toc.yml in your nbs folder
 - in the notebooks folder: `jb build .`
 - copy the HTML over to the docs: `cp -r _build/html/* ../docs`
@@ -28,7 +31,7 @@ How to make it work
 
 TODO:
 
-1. Create a script for the build
-2. Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
-3. Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
-4. ...
+- [x] Create a script for the build
+- [x] Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
+- [] Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
+- [] Get initial feedback before diving further
