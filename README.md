@@ -33,5 +33,5 @@ TODO:
 
 - [x] Create a script for the build
 - [x] Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
-- [] Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
-- [] Get initial feedback before diving further
+- [ ] Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
+- [ ] Get initial feedback before diving further
