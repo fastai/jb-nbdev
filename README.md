@@ -32,4 +32,3 @@ TODO:
 2. Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
 3. Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
 4. ...
-
