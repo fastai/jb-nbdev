@@ -1,8 +1,8 @@
-# jb-fastcore
+# jb-nbdev
 
 > Exploring how nbdev may use JupyterBook
 
-https://fastai.github.io/jb-fastcore/
+https://fastai.github.io/jb-nbdev/
 
 ## Notes
 
