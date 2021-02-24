@@ -1,0 +1,719 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to fastcore &#8212; JupyterBook fastcore docs</title>
+    
+  <link rel="stylesheet" href="_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Test" href="00_test.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="#">
+  
+  <img src="_static/logo.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">JupyterBook fastcore docs</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1 current active">
+  <a class="reference internal" href="#">
+   Welcome to fastcore
+  </a>
+ </li>
+</ul>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_test.html">
+   Test
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_basics.html">
+   Basic functionality
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="01_basics.html#export">
+   Export -
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/index.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fastai/jb-fastcore"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fastai/jb-fastcore/issues/new?title=Issue%20on%20page%20%2Findex.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/fastai/jb-fastcore/master?urlpath=tree/docs/index.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installing">
+   Installing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-tour">
+   A tour
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#testing">
+     Testing
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#foundations">
+     Foundations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#l">
+     L
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-dispatch-and-transforms">
+     Function dispatch and Transforms
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#contributing">
+   Contributing
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
+<span class="kn">from</span> <span class="nn">nbdev.showdoc</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">fastcore.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span><span class="o">,</span><span class="nn">numbers</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="welcome-to-fastcore">
+<h1>Welcome to fastcore<a class="headerlink" href="#welcome-to-fastcore" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Python goodies to make your coding faster, easier, and more maintainable</p>
+</div></blockquote>
+<p>Python is a powerful, dynamic language. Rather than bake everything into the language, it lets the programmer customize it to make it work for them. <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> uses this flexibility to add to Python features inspired by other languages we’ve loved, like multiple dispatch from Julia, mixins from Ruby, and currying, binding, and more from Haskell. It also adds some “missing features” and clean up some rough edges in the Python standard library, such as simplifying parallel processing, and bringing ideas from NumPy over to Python’s <code class="docutils literal notranslate"><span class="pre">list</span></code> type.</p>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>To install fastcore run: <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">fastcore</span></code> (if you use Anaconda, which we strongly recommend) or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">fastcore</span></code>. For an <a class="reference external" href="https://stackoverflow.com/questions/35064426/when-would-the-e-editable-option-be-useful-with-pip-install">editable install</a>, clone this repo and run: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">&quot;.[dev]&quot;</span></code>.</p>
+<p>fastcore is tested to work on Ubuntu, Macos and Windows, for the versions tagged with the <code class="docutils literal notranslate"><span class="pre">-latest</span></code> suffix in <a class="reference external" href="https://docs.github.com/en/actions/reference/specifications-for-github-hosted-runners#supported-runners-and-hardware-resources">these docs</a>.</p>
+</div>
+<div class="section" id="a-tour">
+<h2>A tour<a class="headerlink" href="#a-tour" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fastcore</span></code> contains many features. See the <a class="reference external" href="https://fastcore.fast.ai">docs</a> for all the details, which cover the modules provided:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: Simple testing functions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foundation</span></code>: Mixins, delegation, composition, and more</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xtras</span></code>: Utility functions to help with functional-style programming, parallel processing, and more</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dispatch</span></code>: Multiple dispatch methods</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transform</span></code>: Pipelines of composed partially reversible transformations</p></li>
+</ul>
+<p>Here’s a (somewhat) quick tour of a few higlights, showing examples from each of these modules.</p>
+<div class="section" id="documentation">
+<h3>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h3>
+<p>All <a class="reference external" href="http://fast.ai">fast.ai</a> projects, including this one, are built with <a class="reference external" href="https://nbdev.fast.ai">nbdev</a>, which is a full literate programming environment built on Jupyter Notebooks. That means that every piece of documentation, including the page you’re reading now, can be accessed as interactive Jupyter notebooks. In fact, you can even grab a link directly to a notebook running interactively on Google Colab - if you want to follow along with this tour, click the link below, or click the badge at the top of the page:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colab_link</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<p><a class="reference external" href="https://colab.research.google.com/github/fastai/fastcore/blob/master/nbs/index.ipynb">Open <code class="docutils literal notranslate"><span class="pre">index</span></code> in Colab</a></p>
+</div>
+</div>
+<p>The full docs are available at <a class="reference external" href="https://fastcore.fast.ai">fastcore.fast.ai</a>. The code in the examples and in all <a class="reference external" href="http://fast.ai">fast.ai</a> libraries follow the <a class="reference external" href="https://docs.fast.ai/dev/style.html">fast.ai style guide</a>. In order to support interactive programming, all <a class="reference external" href="http://fast.ai">fast.ai</a> libraries are designed to allow for <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">*</span></code> to be used safely, particular by ensuring that <a class="reference external" href="https://riptutorial.com/python/example/2894/the---all---special-variable"><code class="docutils literal notranslate"><span class="pre">__all__</span></code></a> is defined in all packages. In order to see where a function is from, just type it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coll_repr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;function fastcore.foundation.coll_repr(c, max_n=10)&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>For more details, including a link to the full documentation and source code, use <code class="docutils literal notranslate"><span class="pre">doc</span></code>, which pops up a window with this information:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span><span class="p">(</span><span class="n">coll_repr</span><span class="p">)</span>
+</pre></div>
+</div>
+<img width="499" src="images/att_00000.png" align="left"><p>The documentation also contains links to any related functions or classes, which appear like this: <code class="docutils literal notranslate"><span class="pre">coll_repr</span></code> (in the notebook itself you will just see a word with back-ticks around it; the links are auto-generated in the documentation site). The documentation will generally show one or more examples of use, along with any background context necessary to understand them. As you’ll see, the examples for each function and method are shown as tests, rather than example outputs, so let’s start by explaining that.</p>
+</div>
+<div class="section" id="testing">
+<h3>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h3>
+<p>fastcore’s testing module is designed to work well with <a class="reference external" href="https://nbdev.fast.ai">nbdev</a>, which is a full literate programming environment built on Jupyter Notebooks. That means that your tests, docs, and code all live together in the same notebook. fastcore and nbdev’s approach to testing starts with the premise that all your tests should pass. If one fails, no more tests in a notebook are run.</p>
+<p>Tests look like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">coll_repr</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="mi">5</span><span class="p">),</span> <span class="s1">&#39;(#1000) [0,1,2,3,4...]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>That’s an example from the docs for <code class="docutils literal notranslate"><span class="pre">coll_repr</span></code>. As you see, it’s not showing you the output directly. Here’s what that would look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coll_repr</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;(#1000) [0,1,2,3,4...]&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>So, the test is actually showing you what the output looks like, because if the function call didn’t return <code class="docutils literal notranslate"><span class="pre">'(#1000)</span> <span class="pre">[0,1,2,3,4...]'</span></code>, then the test would have failed.</p>
+<p>So every test shown in the docs is also showing you the behavior of the library — and vice versa!</p>
+<p>Test functions always start with <code class="docutils literal notranslate"><span class="pre">test_</span></code>, and then follow with the operation being tested. So <code class="docutils literal notranslate"><span class="pre">test_eq</span></code> tests for equality (as you saw in the example above). This includes tests for equality of arrays and tensors, lists and generators, and many more:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>When a test fails, it prints out information about what was expected:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">----</span>
+  <span class="ne">AssertionError</span><span class="p">:</span> <span class="o">==</span><span class="p">:</span>
+  <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+  <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you want to check that objects are the same type, rather than the just contain the same collection, use <code class="docutils literal notranslate"><span class="pre">test_eq_type</span></code>.</p>
+<p>You can test with any comparison function using <code class="docutils literal notranslate"><span class="pre">test</span></code>, e.g test whether an object is less than:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">lt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can even test that exceptions are raised:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">divide_zero</span><span class="p">():</span> <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
+<span class="n">test_fail</span><span class="p">(</span><span class="n">divide_zero</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>…and test that things are printed to stdout:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_stdout</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hi&#39;</span><span class="p">),</span> <span class="s1">&#39;hi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="foundations">
+<h3>Foundations<a class="headerlink" href="#foundations" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="http://fast.ai">fast.ai</a> is unusual in that we often use <a class="reference external" href="https://en.wikipedia.org/wiki/Mixin">mixins</a> in our code. Mixins are widely used in many programming languages, such as Ruby, but not so much in Python. We use mixins to attach new behavior to existing libraries, or to allow modules to add new behavior to our own classes, such as in extension modules. One useful example of a mixin we define is <code class="docutils literal notranslate"><span class="pre">Path.ls</span></code>, which lists a directory and returns an <code class="docutils literal notranslate"><span class="pre">L</span></code> (an extended list class which we’ll discuss shortly):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;images&#39;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#6) [Path(&#39;images/mnist3.png&#39;),Path(&#39;images/att_00000.png&#39;),Path(&#39;images/att_00005.png&#39;),Path(&#39;images/att_00007.png&#39;),Path(&#39;images/att_00006.png&#39;),Path(&#39;images/puppy.jpg&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can easily add you own mixins with the <code class="docutils literal notranslate"><span class="pre">patch</span></code> <a class="reference external" href="https://realpython.com/primer-on-python-decorators/">decorator</a>, which takes advantage of Python 3 <a class="reference external" href="https://www.python.org/dev/peps/pep-3107/#parameters">function annotations</a> to say what class to patch:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@patch</span>
+<span class="k">def</span> <span class="nf">num_items</span><span class="p">(</span><span class="bp">self</span><span class="p">:</span><span class="n">Path</span><span class="p">):</span> <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ls</span><span class="p">())</span>
+
+<span class="n">p</span><span class="o">.</span><span class="n">num_items</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+</pre></div>
+</div>
+</div>
+</div>
+<p>We also use <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> frequently. In python <code class="docutils literal notranslate"><span class="pre">**kwargs</span></code> in a parameter like means “<em>put any additional keyword arguments into a dict called <code class="docutils literal notranslate"><span class="pre">kwargs</span></code></em>”. Normally, using <code class="docutils literal notranslate"><span class="pre">kwargs</span></code> makes an API quite difficult to work with, because it breaks things like tab-completion and popup lists of signatures. <code class="docutils literal notranslate"><span class="pre">utils</span></code> provides <code class="docutils literal notranslate"><span class="pre">use_kwargs</span></code> and <code class="docutils literal notranslate"><span class="pre">delegates</span></code> to avoid this problem. See our <a class="reference external" href="https://www.fast.ai/2019/08/06/delegation/">detailed article on delegation</a> on this topic.</p>
+<p><code class="docutils literal notranslate"><span class="pre">GetAttr</span></code> solves a similar problem (and is also discussed in the article linked above): it’s allows you to use Python’s exceptionally useful <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code> magic method, but avoids the problem that normally in Python tab-completion and docs break when using this. For instance, you can see here that Python’s <code class="docutils literal notranslate"><span class="pre">dir</span></code> function, which is used to find the attributes of a python object, finds everything inside the <code class="docutils literal notranslate"><span class="pre">self.default</span></code> attribute here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Author</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+<span class="k">class</span> <span class="nc">ProductPage</span><span class="p">(</span><span class="n">GetAttr</span><span class="p">):</span>
+    <span class="n">_default</span> <span class="o">=</span> <span class="s1">&#39;author&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">author</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="n">cost</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">author</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">price</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">cost</span> <span class="o">=</span> <span class="n">author</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="n">cost</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">ProductPage</span><span class="p">(</span><span class="n">Author</span><span class="p">(</span><span class="s2">&quot;Jeremy&quot;</span><span class="p">),</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">)</span>
+<span class="p">[</span><span class="n">o</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">o</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;author&#39;, &#39;cost&#39;, &#39;name&#39;, &#39;price&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Looking at that <code class="docutils literal notranslate"><span class="pre">ProductPage</span></code> example, it’s rather verbose and duplicates a lot of attribute names, which can lead to bugs later if you change them only in one place. <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> provides <code class="docutils literal notranslate"><span class="pre">store_attr</span></code> to simplify this common pattern. It also provides <code class="docutils literal notranslate"><span class="pre">basic_repr</span></code> to give simple objects a useful <code class="docutils literal notranslate"><span class="pre">repr</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ProductPage</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">author</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="n">cost</span><span class="p">):</span> <span class="n">store_attr</span><span class="p">()</span>
+    <span class="fm">__repr__</span> <span class="o">=</span> <span class="n">basic_repr</span><span class="p">(</span><span class="s1">&#39;author,price,cost&#39;</span><span class="p">)</span>
+
+<span class="n">ProductPage</span><span class="p">(</span><span class="s2">&quot;Jeremy&quot;</span><span class="p">,</span> <span class="mf">1.50</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ProductPage(author=&#39;Jeremy&#39;, price=1.5, cost=0.5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>One of the most interesting <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> functions is the <code class="docutils literal notranslate"><span class="pre">funcs_kwargs</span></code> decorator. This allows class behavior to be modified without sub-classing. This can allow folks that aren’t familiar with object-oriented progressing to customize your class more easily. Here’s an example of a class that uses <code class="docutils literal notranslate"><span class="pre">funcs_kwargs</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@funcs_kwargs</span>
+<span class="k">class</span> <span class="nc">T</span><span class="p">:</span>
+    <span class="n">_methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;some_method&#39;</span><span class="p">]</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">assert</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Passed unknown args: </span><span class="si">{</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">T</span><span class="p">(</span><span class="n">some_method</span> <span class="o">=</span> <span class="nb">print</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">some_method</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">assert</span> <span class="pre">not</span> <span class="pre">kwargs</span></code> above is used to ensure that the user doesn’t pass an unknown parameter (i.e one that’s not in <code class="docutils literal notranslate"><span class="pre">_methods</span></code>). <code class="docutils literal notranslate"><span class="pre">fastai</span></code> uses <code class="docutils literal notranslate"><span class="pre">funcs_kwargs</span></code> in many places, for instance, you can customize any part of a <code class="docutils literal notranslate"><span class="pre">DataLoader</span></code> by passing your own methods.</p>
+<p><code class="docutils literal notranslate"><span class="pre">fastcore</span></code> also provides many utility functions that make a Python programmer’s life easier, in <code class="docutils literal notranslate"><span class="pre">fastcore.utils</span></code>. We won’t look at many here, since you can easily look at the docs yourself. To get you started, have a look at the docs for <code class="docutils literal notranslate"><span class="pre">chunked</span></code> (remember, if you’re in a notebook, type <code class="docutils literal notranslate"><span class="pre">doc(chunked)</span></code>), which is a handy function for creating lazily generated batches from a collection.</p>
+<p>Python’s <code class="docutils literal notranslate"><span class="pre">ProcessPoolExecutor</span></code> is extended to allow <code class="docutils literal notranslate"><span class="pre">max_workers</span></code> to be set to <code class="docutils literal notranslate"><span class="pre">0</span></code>, to easily turn off parallel processing. This makes it easy to debug your code in serial, then run it in parallel. It also allows you to pass arguments to your parallel function, and to ensure there’s a pause between calls, in case the process you are running has race conditions. <code class="docutils literal notranslate"><span class="pre">parallel</span></code> makes parallel processing even easier to use, and even adds an optional progress bar.</p>
+</div>
+<div class="section" id="l">
+<h3>L<a class="headerlink" href="#l" title="Permalink to this headline">¶</a></h3>
+<p>Like most languages, Python allows for very concise syntax for some very common types, such as <code class="docutils literal notranslate"><span class="pre">list</span></code>, which can be constructed with <code class="docutils literal notranslate"><span class="pre">[1,2,3]</span></code>. Perl’s designer Larry Wall explained the reasoning for this kind of syntax:</p>
+<blockquote>
+<div><p>In metaphorical honor of Huffman’s compression code that assigns smaller numbers of bits to more common bytes. In terms of syntax, it simply means that commonly used things should be shorter, but you shouldn’t waste short sequences on less common constructs.</p>
+</div></blockquote>
+<p>On this basis, <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> has just one type that has a single letter name: <code class="docutils literal notranslate"><span class="pre">L</span></code>. The reason for this is that it is designed to be a replacement for <code class="docutils literal notranslate"><span class="pre">list</span></code>, so we want it to be just as easy to use as <code class="docutils literal notranslate"><span class="pre">[1,2,3]</span></code>. Here’s how to create that as an <code class="docutils literal notranslate"><span class="pre">L</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#3) [1,2,3]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The first thing to notice is that an <code class="docutils literal notranslate"><span class="pre">L</span></code> object includes in its representation its number of elements; that’s the <code class="docutils literal notranslate"><span class="pre">(#3)</span></code> in the output above. If there’s more than 10 elements, it will automatically truncate the list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">shuffle</span><span class="p">()</span>
+<span class="n">p</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#20) [0,10,7,16,5,1,14,17,9,8...]
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">L</span></code> contains many of the same indexing ideas that NumPy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> does, including indexing with a list of indexes, or a boolean mask list:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#3) [7,5,14]
+</pre></div>
+</div>
+</div>
+</div>
+<p>It also contains other methods used in <code class="docutils literal notranslate"><span class="pre">array</span></code>, such as <code class="docutils literal notranslate"><span class="pre">L.argwhere</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">ge</span><span class="p">(</span><span class="mi">15</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#5) [3,7,11,14,18]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As you can see from this example, <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> also includes a number of features that make a functional style of programming easier, such as a full range of boolean functions (e.g <code class="docutils literal notranslate"><span class="pre">ge</span></code>, <code class="docutils literal notranslate"><span class="pre">gt</span></code>, etc) which give the same answer as the functions from Python’s <code class="docutils literal notranslate"><span class="pre">operator</span></code> module if given two parameters, but return a <a class="reference external" href="https://en.wikipedia.org/wiki/Currying">curried function</a> if given one parameter.</p>
+<p>There’s too much functionality to show it all here, so be sure to check the docs. Many little things are added that we thought should have been in <code class="docutils literal notranslate"><span class="pre">list</span></code> in the first place, such as making this do what you’d expect (which is an error with <code class="docutils literal notranslate"><span class="pre">list</span></code>, but works fine with <code class="docutils literal notranslate"><span class="pre">L</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="n">L</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(#4) [1,2,3,4]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-dispatch-and-transforms">
+<h3>Function dispatch and Transforms<a class="headerlink" href="#function-dispatch-and-transforms" title="Permalink to this headline">¶</a></h3>
+<p>Most Python programmers use object oriented methods and inheritance to allow different objects to behave in different ways even when called with the same method name. Some languages use a very different approach, such as Julia, which uses <a class="reference external" href="https://docs.julialang.org/en/v1/manual/methods/">multiple dispatch generic functions</a>. Python provides <a class="reference external" href="https://www.python.org/dev/peps/pep-0443/">single dispatch generic functions</a> as part of the standard library. <code class="docutils literal notranslate"><span class="pre">fastcore</span></code> provides multiple dispatch, with the <code class="docutils literal notranslate"><span class="pre">typedispatch</span></code> decorator (which is actually an instance of <code class="docutils literal notranslate"><span class="pre">DispatchReg</span></code>):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@typedispatch</span>
+<span class="k">def</span> <span class="nf">_f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<span class="nd">@typedispatch</span>
+<span class="k">def</span> <span class="nf">_f</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="n">_f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mf">2.0</span><span class="p">),</span> <span class="n">_f</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(5.0, 4)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This approach to dispatch is particularly useful for adding implementations of functionality in extension modules or user code. It is heavily used in the <code class="docutils literal notranslate"><span class="pre">Transform</span></code> class. A <code class="docutils literal notranslate"><span class="pre">Transform</span></code> is the main building block of the fastai data pipelines. In the most general terms a transform can be any function you want to apply to your data, however the <code class="docutils literal notranslate"><span class="pre">Transform</span></code> class provides several mechanisms that make the process of building them easy and flexible (see the docs for information about each of these):</p>
+<ul class="simple">
+<li><p>Type dispatch</p></li>
+<li><p>Dispatch over tuples</p></li>
+<li><p>Reversability</p></li>
+<li><p>Type propagation</p></li>
+<li><p>Preprocessing</p></li>
+<li><p>Filtering based on the dataset type</p></li>
+<li><p>Ordering</p></li>
+<li><p>Appending new behavior with decorators</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Transform</span></code> looks for three special methods, <code>encodes</code>, <code>decodes</code>, and <code>setups</code>, which provide the implementation for <a class="reference external" href="https://www.python-course.eu/python3_magic_methods.php"><code class="docutils literal notranslate"><span class="pre">__call__</span></code></a>, <code class="docutils literal notranslate"><span class="pre">decode</span></code>, and <code class="docutils literal notranslate"><span class="pre">setup</span></code> respectively. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">encodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">A</span><span class="p">()(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>For simple transforms like this, you can also use <code class="docutils literal notranslate"><span class="pre">Transform</span></code> as a decorator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Transform</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+
+<span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Transforms can be composed into a <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@Transform</span>
+<span class="k">def</span> <span class="nf">g</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">/</span><span class="mi">2</span>
+
+<span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">])</span>
+<span class="n">pipe</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>The power of <code class="docutils literal notranslate"><span class="pre">Transform</span></code> and <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> is best understood by seeing how they’re used to create a complete data processing pipeline. This is explained in <a class="reference external" href="https://github.com/fastai/fastbook/blob/master/11_midlevel_data.ipynb">chapter 11</a> of the <a class="reference external" href="https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527">fastai book</a>, which is <a class="reference external" href="https://github.com/fastai/fastbook">available for free</a> in Jupyter Notebook format.</p>
+</div>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>After you clone this repository, please run <code class="docutils literal notranslate"><span class="pre">nbdev_install_git_hooks</span></code> in your terminal. This sets up git hooks, which clean up the notebooks to remove the extraneous stuff stored in the notebooks (e.g. which cells you ran) which causes unnecessary merge conflicts.</p>
+<p>To run the tests in parallel, launch <code class="docutils literal notranslate"><span class="pre">nbdev_test_nbs</span></code> or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>.</p>
+<p>Before submitting a PR, check that the local library and notebooks match. The script <code class="docutils literal notranslate"><span class="pre">nbdev_diff_nbs</span></code> can let you know if there is a difference between the local library and the notebooks.</p>
+<ul class="simple">
+<li><p>If you made a change to the notebooks in one of the exported cells, you can export it to the library with <code class="docutils literal notranslate"><span class="pre">nbdev_build_lib</span></code> or <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">fastcore</span></code>.</p></li>
+<li><p>If you made a change to the library, you can export it back to the notebooks with <code class="docutils literal notranslate"><span class="pre">nbdev_update_lib</span></code>.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='right-next' id="next-link" href="00_test.html" title="next page">Test</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Hamel Husain<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    
+  </body>
+</html>
