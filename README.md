@@ -1,7 +1,8 @@
 # jb-fastcore
 
-Exploring how nbdev may JupyterBook
+> Exploring how nbdev may use JupyterBook
 
+https://fastai.github.io/jb-fastcore/
 
 ## Notes
 
@@ -31,3 +32,4 @@ TODO:
 2. Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
 3. Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
 4. ...
+
