@@ -55,6 +55,7 @@
     <link rel="canonical" href="https://fastai.github.io/jb-nbdev/05_transform.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Type dispatch" href="04_dispatch.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -96,24 +97,19 @@
     <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="index.html">
-   Welcome to fastcore
+   jb-nbdev
   </a>
  </li>
 </ul>
-<ul class="nav sidenav_l1">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="00_test.html">
-   Test
+  <a class="reference internal" href="04_dispatch.html">
+   Type dispatch
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01_basics.html">
-   Basic functionality
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01_basics.html#export">
-   Export -
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Transforms
   </a>
  </li>
 </ul>
@@ -306,24 +302,7 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#default_exp transform</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="kn">from</span> <span class="nn">fastcore.imports</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">fastcore.foundation</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">fastcore.utils</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">fastcore.dispatch</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">inspect</span>
-</pre></div>
-</div>
-</div>
+  <div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -343,119 +322,17 @@
 <p>Classes are also provided and for composing transforms, and mapping them over collections. <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> is a transform which composes several <code class="docutils literal notranslate"><span class="pre">Transform</span></code>, knowing how to decode them or show an encoded item.</p>
 <div class="section" id="transform">
 <h2>Transform -<a class="headerlink" href="#transform" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="n">_tfm_methods</span> <span class="o">=</span> <span class="s1">&#39;encodes&#39;</span><span class="p">,</span><span class="s1">&#39;decodes&#39;</span><span class="p">,</span><span class="s1">&#39;setups&#39;</span>
-
-<span class="k">class</span> <span class="nc">_TfmDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_tfm_methods</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">callable</span><span class="p">(</span><span class="n">v</span><span class="p">):</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">TypeDispatch</span><span class="p">())</span>
-        <span class="bp">self</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-</pre></div>
+<div class="cell tag_remove-input docutils container">
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">_TfmMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">nm</span> <span class="ow">in</span> <span class="n">_tfm_methods</span><span class="p">:</span>
-            <span class="n">base_td</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">nm</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">nm</span> <span class="ow">in</span> <span class="n">res</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span><span class="n">nm</span><span class="p">)</span><span class="o">.</span><span class="n">bases</span> <span class="o">=</span> <span class="n">base_td</span>
-            <span class="k">else</span><span class="p">:</span> <span class="nb">setattr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="n">TypeDispatch</span><span class="p">(</span><span class="n">bases</span><span class="o">=</span><span class="n">base_td</span><span class="p">))</span>
-        <span class="n">res</span><span class="o">.</span><span class="n">__signature__</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">signature</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="fm">__init__</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span>
-
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">f</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">args</span> <span class="k">else</span> <span class="kc">None</span>
-        <span class="n">n</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;__name__&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">callable</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">_tfm_methods</span><span class="p">:</span>
-            <span class="nb">getattr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">n</span><span class="p">)</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-            <span class="k">return</span> <span class="n">f</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="fm">__prepare__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">):</span> <span class="k">return</span> <span class="n">_TfmDict</span><span class="p">()</span>
-</pre></div>
+<div class="cell tag_remove-input docutils container">
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">_get_name</span><span class="p">(</span><span class="n">o</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="s1">&#39;__qualname__&#39;</span><span class="p">):</span> <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="vm">__qualname__</span>
-    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="s1">&#39;__name__&#39;</span><span class="p">):</span> <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="vm">__name__</span>
-    <span class="k">return</span> <span class="n">o</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">_is_tuple</span><span class="p">(</span><span class="n">o</span><span class="p">):</span> <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="s1">&#39;_fields&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">Transform</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">_TfmMeta</span><span class="p">):</span>
-    <span class="s2">&quot;Delegates (`__call__`,`decode`,`setup`) to (&lt;code&gt;encodes&lt;/code&gt;,&lt;code&gt;decodes&lt;/code&gt;,&lt;code&gt;setups&lt;/code&gt;) if `split_idx` matches&quot;</span>
-    <span class="n">split_idx</span><span class="p">,</span><span class="n">init_enc</span><span class="p">,</span><span class="n">order</span><span class="p">,</span><span class="n">train_setup</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span> <span class="o">=</span> <span class="n">ifnone</span><span class="p">(</span><span class="n">split_idx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="o">=</span><span class="n">order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">init_enc</span> <span class="o">=</span> <span class="n">enc</span> <span class="ow">or</span> <span class="n">dec</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_enc</span><span class="p">:</span> <span class="k">return</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">encodes</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">decodes</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">setups</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">(),</span><span class="n">TypeDispatch</span><span class="p">(),</span><span class="n">TypeDispatch</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">enc</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">encodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">enc</span><span class="p">,</span><span class="s1">&#39;order&#39;</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">order</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">type_hints</span><span class="p">(</span><span class="n">enc</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_types</span> <span class="o">=</span> <span class="n">first</span><span class="p">(</span><span class="n">type_hints</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_name</span> <span class="o">=</span> <span class="n">_get_name</span><span class="p">(</span><span class="n">enc</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">dec</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">decodes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;_name&#39;</span><span class="p">,</span> <span class="n">_get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;encodes&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">decode</span>  <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="s1">&#39;decodes&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">:</span><span class="se">\n</span><span class="s1">encodes: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">encodes</span><span class="si">}</span><span class="s1">decodes: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">decodes</span><span class="si">}</span><span class="s1">&#39;</span>
-
-    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="n">train_setup</span> <span class="o">=</span> <span class="n">train_setup</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_setup</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_setup</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">setups</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">items</span><span class="p">)</span> <span class="k">if</span> <span class="n">train_setup</span> <span class="k">else</span> <span class="n">items</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">split_idx</span><span class="o">!=</span><span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_do_call</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_do_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_tuple</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">f</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="k">return</span> <span class="n">x</span>
-            <span class="n">ret</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">returns</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s1">&#39;returns&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
-            <span class="k">return</span> <span class="n">retain_type</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">ret</span><span class="p">)</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_do_call</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x_</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">for</span> <span class="n">x_</span> <span class="ow">in</span> <span class="n">x</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">retain_type</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-
-<span class="n">add_docs</span><span class="p">(</span><span class="n">Transform</span><span class="p">,</span> <span class="n">decode</span><span class="o">=</span><span class="s2">&quot;Delegate to &lt;code&gt;decodes&lt;/code&gt; to undo transform&quot;</span><span class="p">,</span> <span class="n">setup</span><span class="o">=</span><span class="s2">&quot;Delegate to &lt;code&gt;setups&lt;/code&gt; to set up transform&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_doc</span><span class="p">(</span><span class="n">Transform</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <h2 id="Transform" class="doc_header"><code>class</code> <code>Transform</code><a href="" class="source_link" style="float:right">[source]</a></h2>
 <blockquote>
@@ -757,16 +634,6 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="n">f</span><span class="o">.</span><span class="n">split_idx</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">_inp</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="nb">dict</span><span class="p">(</span><span class="n">_inp</span><span class="p">))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">_inp</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="n">_inp</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>If you want a transform to operate on a list elementwise, you must implement this appropriately in the <code>encodes</code> and <code>decodes</code> methods:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -812,17 +679,6 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="p">((</span><span class="mi">1</span><span class="p">,)),</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="p">((</span><span class="mf">1.</span><span class="p">,)),</span> <span class="p">(</span><span class="mf">1.</span><span class="p">,))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">input_types</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Another example of how <code class="docutils literal notranslate"><span class="pre">Transform</span></code> can use <code class="docutils literal notranslate"><span class="pre">TypedDispatch</span></code> with tuples is shown below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -860,19 +716,6 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="nd">@B</span>
-<span class="k">def</span> <span class="nf">decodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">-</span><span class="mi">1</span>
-
-<span class="n">test_eq</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="mi">2</span><span class="p">,)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="s1">&#39;2&#39;</span><span class="p">,)),</span> <span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">,))</span>
-<span class="k">assert</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Dispatching over tuples works recursively, by the way:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -903,25 +746,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">InplaceTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
-    <span class="s2">&quot;A `Transform` that modifies in-place and just returns whatever it&#39;s passed&quot;</span>
-    <span class="k">def</span> <span class="nf">_call</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fn</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">_call</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">split_idx</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -937,17 +762,7 @@
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># export</span>
-<span class="k">class</span> <span class="nc">DisplayedTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
-    <span class="s2">&quot;A transform with a `__repr__` that shows its attrs&quot;</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> -- </span><span class="si">{</span><span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="s1">&#39;__stored_args__&#39;</span><span class="p">,{})</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p>Transforms normally are represented by just their class name and a list of encodes and decodes implementations:</p>
 <div class="cell docutils container">
@@ -990,23 +805,7 @@ decodes:
 </div>
 <div class="section" id="itemtransform">
 <h4>ItemTransform -<a class="headerlink" href="#itemtransform" title="Permalink to this headline">¶</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">ItemTransform</span><span class="p">(</span><span class="n">Transform</span><span class="p">):</span>
-    <span class="s2">&quot;A transform that always take tuples as items&quot;</span>
-    <span class="n">_retain</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;__call__&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>   <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;decode&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">def</span> <span class="nf">_call1</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_tuple</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">super</span><span class="p">(),</span> <span class="n">name</span><span class="p">)(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="nb">super</span><span class="p">(),</span> <span class="n">name</span><span class="p">)(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_retain</span><span class="p">:</span> <span class="k">return</span> <span class="n">y</span>
-        <span class="k">if</span> <span class="n">is_listy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">retain_type</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">ItemTransform</span></code> is the class to use to opt out of the default behavior of <code class="docutils literal notranslate"><span class="pre">Transform</span></code>.</p>
 <div class="cell docutils container">
@@ -1032,61 +831,11 @@ decodes:
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="n">f</span><span class="o">.</span><span class="n">split_idx</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">test_eq_type</span><span class="p">(</span><span class="n">f</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">test_eq_type</span><span class="p">(</span><span class="n">f</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">split_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">test_eq_type</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-<span class="n">test_eq_type</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">split_idx</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="k">class</span> <span class="nc">Get</span><span class="p">(</span><span class="n">ItemTransform</span><span class="p">):</span>
-    <span class="n">_retain</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">def</span> <span class="nf">encodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    
-<span class="n">g</span> <span class="o">=</span> <span class="n">Get</span><span class="p">()</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">g</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]),</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="n">g</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])),</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">test_eq_type</span><span class="p">(</span><span class="n">g</span><span class="p">(([</span><span class="s1">&#39;a&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])),</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">ItemTransform</span><span class="p">):</span> 
-    <span class="k">def</span> <span class="nf">encodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">_T</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">))</span>
-    <span class="k">def</span> <span class="nf">decodes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">_T</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    
-<span class="n">f</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
-<span class="n">test_eq</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span> <span class="n">_T</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="func">
 <h3>Func -<a class="headerlink" href="#func" title="Permalink to this headline">¶</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">get_func</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="s2">&quot;Get the `t.name` (potentially partial-ized with `args` and `kwargs`) or `noop` if not defined&quot;</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">noop</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">f</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">args</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="p">)</span> <span class="k">else</span> <span class="n">partial</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p>This works for any kind of <code class="docutils literal notranslate"><span class="pre">t</span></code> supporting <code class="docutils literal notranslate"><span class="pre">getattr</span></code>, so a class or a module.</p>
 <div class="cell docutils container">
@@ -1102,18 +851,7 @@ decodes:
 </div>
 </div>
 <p>Transforms are built with multiple-dispatch: a given function can have several methods depending on the type of the object received. This is done directly with the <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> module and type-annotation in <code class="docutils literal notranslate"><span class="pre">Transform</span></code>, but you can also use the following class.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">Func</span><span class="p">():</span>
-    <span class="s2">&quot;Basic wrapper around a `name` with `args` and `kwargs` to call on a given type&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span> <span class="o">=</span> <span class="n">name</span><span class="p">,</span><span class="n">args</span><span class="p">,</span><span class="n">kwargs</span>
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;sig: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="si">}</span><span class="s1">)&#39;</span>
-    <span class="k">def</span> <span class="nf">_get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span> <span class="k">return</span> <span class="n">get_func</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">t</span><span class="p">):</span> <span class="k">return</span> <span class="n">mapped</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <p>You can call the <code class="docutils literal notranslate"><span class="pre">Func</span></code> object on any module name or type, even a list of types. It will return the corresponding function (with a default to <code class="docutils literal notranslate"><span class="pre">noop</span></code> if nothing is found) or list of functions.</p>
 <div class="cell docutils container">
@@ -1123,25 +861,9 @@ decodes:
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">_Sig</span><span class="p">():</span>
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">_inner</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span> <span class="k">return</span> <span class="n">Func</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">_inner</span>
-
-<span class="n">Sig</span> <span class="o">=</span> <span class="n">_Sig</span><span class="p">()</span>
-</pre></div>
+<div class="cell tag_remove-input docutils container">
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_doc</span><span class="p">(</span><span class="n">Sig</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Sig&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <h4 id="Sig" class="doc_header"><code>Sig</code><a href="__main__.py#L4" class="source_link" style="float:right">[source]</a></h4>
 <blockquote>
@@ -1162,19 +884,7 @@ decodes:
 </div>
 <div class="section" id="pipeline">
 <h2>Pipeline -<a class="headerlink" href="#pipeline" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">compose_tfms</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">tfms</span><span class="p">,</span> <span class="n">is_enc</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="s2">&quot;Apply all `func_nm` attribute of `tfms` on `x`, maybe in `reverse` order&quot;</span>
-    <span class="k">if</span> <span class="n">reverse</span><span class="p">:</span> <span class="n">tfms</span> <span class="o">=</span> <span class="nb">reversed</span><span class="p">(</span><span class="n">tfms</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">tfms</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_enc</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decode</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1221,99 +931,13 @@ decodes:
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">mk_transform</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="s2">&quot;Convert function `f` to `Transform` if it isn&#39;t already one&quot;</span>
-    <span class="n">f</span> <span class="o">=</span> <span class="n">instantiate</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">f</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">f</span><span class="p">,(</span><span class="n">Transform</span><span class="p">,</span><span class="n">Pipeline</span><span class="p">))</span> <span class="k">else</span> <span class="n">Transform</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
+<div class="cell tag_remove-input docutils container">
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
+<div class="cell tag_remove-input docutils container">
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">gather_attrs</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">nm</span><span class="p">):</span>
-    <span class="s2">&quot;Used in __getattr__ to collect all attrs `k` from `self.</span><span class="si">{nm}</span><span class="s2">`&quot;</span>
-    <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">k</span><span class="o">==</span><span class="n">nm</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">att</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="n">nm</span><span class="p">)</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">att</span><span class="o">.</span><span class="n">attrgot</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">]</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">res</span><span class="p">:</span> <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="k">else</span> <span class="n">L</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">def</span> <span class="nf">gather_attr_names</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">nm</span><span class="p">):</span>
-    <span class="s2">&quot;Used in __dir__ to collect all attrs `k` from `self.</span><span class="si">{nm}</span><span class="s2">`&quot;</span>
-    <span class="k">return</span> <span class="n">L</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span><span class="n">nm</span><span class="p">))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span><span class="o">.</span><span class="n">concat</span><span class="p">()</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#export</span>
-<span class="k">class</span> <span class="nc">Pipeline</span><span class="p">:</span>
-    <span class="s2">&quot;A pipeline of composed (for encode/decode) transforms, setup with types&quot;</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">funcs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">split_idx</span><span class="p">,</span><span class="kc">None</span>
-        <span class="k">if</span> <span class="n">funcs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="n">funcs</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">funcs</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span> <span class="o">=</span> <span class="n">funcs</span><span class="o">.</span><span class="n">fs</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">funcs</span><span class="p">,</span> <span class="n">Transform</span><span class="p">):</span> <span class="n">funcs</span> <span class="o">=</span> <span class="p">[</span><span class="n">funcs</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fs</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">ifnone</span><span class="p">(</span><span class="n">funcs</span><span class="p">,[</span><span class="n">noop</span><span class="p">]))</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mk_transform</span><span class="p">)</span><span class="o">.</span><span class="n">sorted</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;order&#39;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">:</span>
-            <span class="n">name</span> <span class="o">=</span> <span class="n">camel2snake</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">a</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">+</span><span class="n">f</span>
-            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">setup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="n">tfms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">[:]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tfms</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">items</span><span class="p">,</span> <span class="n">train_setup</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">t</span><span class="p">,</span> <span class="n">items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_setup</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="n">t</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">train_setup</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span> <span class="k">return</span> <span class="n">compose_tfms</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">tfms</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Pipeline: </span><span class="si">{</span><span class="s1">&#39; -&gt; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;noop&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">i</span><span class="p">):</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-    <span class="k">def</span> <span class="nf">__setstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">data</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span> <span class="k">return</span> <span class="n">gather_attrs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s1">&#39;fs&#39;</span><span class="p">)</span>
-    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()</span> <span class="o">+</span> <span class="n">gather_attr_names</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;fs&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">decode</span>  <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">full</span><span class="p">:</span> <span class="k">return</span> <span class="n">compose_tfms</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">tfms</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">,</span> <span class="n">is_enc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span><span class="p">)</span>
-        <span class="c1">#Not full means we decode up to the point the item knows how to show itself.</span>
-        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fs</span><span class="p">):</span>
-            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_showable</span><span class="p">(</span><span class="n">o</span><span class="p">):</span> <span class="k">return</span> <span class="n">o</span>
-            <span class="n">o</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">split_idx</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">split_idx</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">o</span>
-
-    <span class="k">def</span> <span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">,</span> <span class="n">ctx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="p">(</span><span class="n">o</span><span class="p">,)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_tuple</span><span class="p">(</span><span class="n">o</span><span class="p">)</span> <span class="k">else</span> <span class="n">o</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">):</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">o</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">o_</span> <span class="ow">in</span> <span class="n">o1</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o_</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">):</span> <span class="n">ctx</span> <span class="o">=</span> <span class="n">o_</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">ctx</span><span class="o">=</span><span class="n">ctx</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ctx</span>
-
-    <span class="k">def</span> <span class="nf">_is_showable</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">o</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">o</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">):</span> <span class="k">return</span> <span class="kc">True</span>
-        <span class="k">if</span> <span class="n">_is_tuple</span><span class="p">(</span><span class="n">o</span><span class="p">):</span> <span class="k">return</span> <span class="nb">all</span><span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">o_</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">o_</span> <span class="ow">in</span> <span class="n">o</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1533,12 +1157,7 @@ decodes:
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_doc</span><span class="p">(</span><span class="n">Pipeline</span><span class="o">.</span><span class="fm">__call__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <h4 id="Pipeline.__call__" class="doc_header"><code>Pipeline.__call__</code><a href="__main__.py#L26" class="source_link" style="float:right">[source]</a></h4>
 <blockquote>
@@ -1547,12 +1166,7 @@ decodes:
 <p>Compose <code class="docutils literal notranslate"><span class="pre">__call__</span></code> of all <code class="docutils literal notranslate"><span class="pre">fs</span></code> on <code class="docutils literal notranslate"><span class="pre">o</span></code></p>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_doc</span><span class="p">(</span><span class="n">Pipeline</span><span class="o">.</span><span class="n">decode</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <h4 id="Pipeline.decode" class="doc_header"><code>Pipeline.decode</code><a href="__main__.py#L33" class="source_link" style="float:right">[source]</a></h4>
 <blockquote>
@@ -1561,12 +1175,7 @@ decodes:
 <p>Compose <code class="docutils literal notranslate"><span class="pre">decode</span></code> of all <code class="docutils literal notranslate"><span class="pre">fs</span></code> on <code class="docutils literal notranslate"><span class="pre">o</span></code></p>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">show_doc</span><span class="p">(</span><span class="n">Pipeline</span><span class="o">.</span><span class="n">setup</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <h4 id="Pipeline.setup" class="doc_header"><code>Pipeline.setup</code><a href="__main__.py#L17" class="source_link" style="float:right">[source]</a></h4>
 <blockquote>
@@ -1576,45 +1185,10 @@ decodes:
 </div>
 </div>
 <p>During the setup, the <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> starts with no transform and adds them one at a time, so that during its setup, each transform gets the items processed up to its point and not after.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="c1">#Test is with TfmdList</span>
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="export">
 <h2>Export -<a class="headerlink" href="#export" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide</span>
-<span class="kn">from</span> <span class="nn">nbdev.export</span> <span class="kn">import</span> <span class="n">notebook2script</span>
-<span class="n">notebook2script</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converted 00_test.ipynb.
-Converted 01_basics.ipynb.
-Converted 02_foundation.ipynb.
-Converted 03_xtras.ipynb.
-Converted 03a_parallel.ipynb.
-Converted 03b_net.ipynb.
-Converted 04_dispatch.ipynb.
-Converted 05_transform-Copy1.ipynb.
-Converted 05_transform.ipynb.
-Converted 07_meta.ipynb.
-Converted 08_script.ipynb.
-Converted Untitled.ipynb.
-Converted Untitled1.ipynb.
-Converted index.ipynb.
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -1646,6 +1220,7 @@ Converted index.ipynb.
     
     <div class='prev-next-bottom'>
         
+    <a class='left-prev' id="prev-link" href="04_dispatch.html" title="previous page">Type dispatch</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">

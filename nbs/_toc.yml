@@ -1,2 +1,6 @@
 - file: index
-- file: metadata
+- file: fastcore
+  sections:
+  - file: 04_dispatch
+  - file: 05_transform
+
