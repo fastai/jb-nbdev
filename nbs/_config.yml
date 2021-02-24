@@ -29,10 +29,11 @@ repository:
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
+  favicon: favicon.ico
   use_repository_button: true
-
-html:
+  use_edit_page_button: true
   baseurl: https://fastai.github.io/jb-nbdev/
+
 
 parse:
   myst_enable_extensions:

@@ -53,6 +53,7 @@
     </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://fastai.github.io/jb-nbdev/04_dispatch.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Transforms" href="05_transform.html" />
@@ -173,6 +174,24 @@
 
         <!-- Source interaction buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/fastai/jb-nbdev"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/fastai/jb-nbdev/issues/new?title=Issue%20on%20page%20%2F04_dispatch.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/fastai/jb-nbdev/edit/master/docs/04_dispatch.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
@@ -289,7 +308,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.showdoc</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.showdoc</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">fastcore.test</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">fastcore.nb_imports</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
@@ -307,7 +326,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">lenient_issubclass</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="ow">not</span> <span class="n">lenient_issubclass</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">lenient_issubclass</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">lenient_issubclass</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">lenient_issubclass</span><span class="p">(</span><span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">)</span>
@@ -321,7 +340,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">sorted_topologically</span><span class="p">(</span><span class="n">td</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">sorted_topologically</span><span class="p">(</span><span class="n">td</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
@@ -330,7 +349,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">sorted_topologically</span><span class="p">(</span><span class="n">td</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="n">lenient_issubclass</span><span class="p">),</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -338,7 +357,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">td</span> <span class="o">=</span> <span class="p">[</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]</span>
 <span class="n">td</span> <span class="o">=</span> <span class="n">sorted_topologically</span><span class="p">(</span><span class="n">td</span><span class="p">,</span> <span class="n">cmp</span><span class="o">=</span><span class="n">lenient_issubclass</span><span class="p">)</span>
 <span class="k">assert</span> <span class="n">td</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">td</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
 </pre></div>
@@ -375,7 +394,7 @@
 <p>To demonstrate how <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> works, we define a set of functions that accept a variety of input types, specified with different type annotations:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>              <span class="c1">#int and float for 2nd arg</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>              <span class="c1">#int and float for 2nd arg</span>
 <span class="k">def</span> <span class="nf">f_nin</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">int</span><span class="p">:</span>  <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span> <span class="c1">#integral numeric</span>
 <span class="k">def</span> <span class="nf">f_ni2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span>                      <span class="c1">#integer</span>
 <span class="k">def</span> <span class="nf">f_bll</span><span class="p">(</span><span class="n">x</span><span class="p">:(</span><span class="nb">bool</span><span class="p">,</span><span class="nb">list</span><span class="p">)):</span> <span class="k">return</span> <span class="n">x</span>              <span class="c1">#bool or list</span>
@@ -387,7 +406,7 @@
 <p>We can optionally initialize <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> with a list of functions we want to search.  Printing an instance of <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> will display convenient mapping of types -&gt; functions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f_nin</span><span class="p">,</span><span class="n">f_ni2</span><span class="p">,</span><span class="n">f_num</span><span class="p">,</span><span class="n">f_bll</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f_nin</span><span class="p">,</span><span class="n">f_ni2</span><span class="p">,</span><span class="n">f_num</span><span class="p">,</span><span class="n">f_bll</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
 <span class="n">t</span>
 </pre></div>
 </div>
@@ -411,7 +430,7 @@
 <p>Will return <code class="docutils literal notranslate"><span class="pre">f_num</span></code> because that is the matching function that has a type annotation that is a super-class of of <code class="docutils literal notranslate"><span class="pre">float</span></code> - <code class="docutils literal notranslate"><span class="pre">numbers.Number</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">f_num</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -420,7 +439,7 @@
 <p>The same is true for other types as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f_nin</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f_nin</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">f_bll</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">list</span><span class="p">],</span> <span class="n">f_bll</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f_nin</span><span class="p">)</span>
@@ -431,7 +450,7 @@
 <p>If you try to get a type that doesn’t match, <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> will return <code class="docutils literal notranslate"><span class="pre">None</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -448,7 +467,7 @@
 <p>This method allows you to add an additional function to an existing <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> instance :</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_col</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_col</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">typing</span><span class="o">.</span><span class="n">Collection</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span>
 <span class="n">t</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f_col</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">f_col</span><span class="p">)</span>
 <span class="n">t</span>
@@ -470,7 +489,7 @@
 <p>If you accidentally add the same function more than once things will still work as expected:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f_ni2</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f_ni2</span><span class="p">)</span> 
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">f_ni2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -479,7 +498,7 @@
 <p>However, if you add a function that has a type collision that raises an ambiguity, this will automatically resolve to the latest function added:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_ni3</span><span class="p">(</span><span class="n">z</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">z</span> <span class="c1"># collides with f_ni2 with same type annotations</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_ni3</span><span class="p">(</span><span class="n">z</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">z</span> <span class="c1"># collides with f_ni2 with same type annotations</span>
 <span class="n">t</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f_ni3</span><span class="p">)</span> 
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">f_ni3</span><span class="p">)</span>
 </pre></div>
@@ -492,7 +511,7 @@
 <p>These are searched for matching functions if no match in your list of functions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_str</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_str</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f_nin</span><span class="p">,</span><span class="n">f_ni2</span><span class="p">,</span><span class="n">f_num</span><span class="p">,</span><span class="n">f_bll</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">(</span><span class="n">f_str</span><span class="p">,</span> <span class="n">bases</span><span class="o">=</span><span class="n">t</span><span class="p">)</span> <span class="c1"># you can optionally supply a list of TypeDispatch objects for `bases`.</span>
@@ -514,7 +533,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">f_ni2</span><span class="p">)</span>       <span class="c1"># searches `t` b/c not found in `t2`</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">f_ni2</span><span class="p">)</span>       <span class="c1"># searches `t` b/c not found in `t2`</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f_nin</span><span class="p">)</span>  <span class="c1"># searches `t` b/c not found in `t2`</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">f_num</span><span class="p">)</span>     <span class="c1"># searches `t` b/c not found in `t2`</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t2</span><span class="p">[</span><span class="nb">bool</span><span class="p">],</span> <span class="n">f_bll</span><span class="p">)</span>      <span class="c1"># searches `t` b/c not found in `t2`</span>
@@ -533,7 +552,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> supports up to two arguments when searching for the appropriate function.  The following functions <code class="docutils literal notranslate"><span class="pre">f1</span></code> and <code class="docutils literal notranslate"><span class="pre">f2</span></code> both have two parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>  <span class="c1">#Integral is a numeric type</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>  <span class="c1">#Integral is a numeric type</span>
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
 <span class="n">t</span>
@@ -550,7 +569,7 @@
 <p>You can lookup functions from a <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> instance with two parameters like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">],</span> <span class="n">f1</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">float</span><span class="p">],</span> <span class="n">f2</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -559,7 +578,7 @@
 <p>Keep in mind that anything beyond the first two parameters are ignored, and any collisions will be resolved in favor of the most recent function added.  In the below example, <code class="docutils literal notranslate"><span class="pre">f1</span></code> is ignored in favor of <code class="docutils literal notranslate"><span class="pre">f2</span></code> because the first two parameters have identical type hints:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span><span class="nb">list</span><span class="p">):</span> <span class="k">return</span> <span class="n">a</span>
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span><span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="n">b</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">f2</span><span class="p">)</span>
@@ -581,7 +600,7 @@
 <p>In this scenario, <code class="docutils literal notranslate"><span class="pre">f2</span></code> will not be matched. This is because the first type annotation of <code class="docutils literal notranslate"><span class="pre">f2</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, is not a superclass (or the same class) of <code class="docutils literal notranslate"><span class="pre">np.int32</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
 
@@ -593,7 +612,7 @@
 <p>Instead, <code class="docutils literal notranslate"><span class="pre">f1</span></code> is a valid match, as its first argument is annoted with the type <code class="docutils literal notranslate"><span class="pre">numbers.Integeral</span></code>, which <code class="docutils literal notranslate"><span class="pre">np.int32</span></code> is a subclass of:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span><span class="nb">float</span><span class="p">],</span> <span class="n">f1</span><span class="p">)</span> 
 </pre></div>
 </div>
@@ -602,7 +621,7 @@
 <p>In <code class="docutils literal notranslate"><span class="pre">f1</span></code> , the 2nd parameter <code class="docutils literal notranslate"><span class="pre">y</span></code> is not annotated, which means <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> will match anything where the first argument matches <code class="docutils literal notranslate"><span class="pre">int</span></code> that is not matched with anything else:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span> <span class="c1"># int is a subclass of numbers.Integral</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">issubclass</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)</span> <span class="c1"># int is a subclass of numbers.Integral</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">f1</span><span class="p">)</span>
 <span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">int</span><span class="p">],</span> <span class="n">f1</span><span class="p">)</span>
 </pre></div>
@@ -612,7 +631,7 @@
 <p>If no match is possible, <code class="docutils literal notranslate"><span class="pre">None</span></code> is returned:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="nb">float</span><span class="p">],</span> <span class="kc">None</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span><span class="nb">float</span><span class="p">],</span> <span class="kc">None</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -629,7 +648,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> is also callable.  When you call an instance of <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code>, it will execute the relevant function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_arr</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f_arr</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="k">def</span> <span class="nf">f_int</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f_arr</span><span class="p">,</span> <span class="n">f_int</span><span class="p">])</span>
 
@@ -646,7 +665,7 @@
 <p>You can also call an instance of of <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> when there are two parameters:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">([</span><span class="n">f1</span><span class="p">,</span><span class="n">f2</span><span class="p">])</span>
 
@@ -659,7 +678,7 @@
 <p>When no match is found, a <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> instance becomes an identity function.  This default behavior is leveraged by fasatai for data transformations to provide a sensible default when a matching function cannot be found.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,7 +695,7 @@
 <p>You can optionally pass an object to <code class="docutils literal notranslate"><span class="pre">TypeDispatch.returns</span></code> and get the return type annotation back:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">f1</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">f2</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span> <span class="k">return</span> <span class="n">List</span>
 <span class="k">def</span> <span class="nf">f3</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="n">List</span> <span class="c1"># f3 has no return type annotation</span>
 
@@ -699,7 +718,7 @@
 <p>You can use <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> when defining methods as well:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_nin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:(</span><span class="nb">str</span><span class="p">,</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)):</span> <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_nin</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:(</span><span class="nb">str</span><span class="p">,</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)):</span> <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
 <span class="k">def</span> <span class="nf">m_bll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="nb">bool</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">foo</span><span class="o">=</span><span class="s1">&#39;a&#39;</span>
 <span class="k">def</span> <span class="nf">m_num</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
 
@@ -720,7 +739,7 @@
 <p>As discussed in <code class="docutils literal notranslate"><span class="pre">TypeDispatch.__call__</span></code>, when there is not a match, <code class="docutils literal notranslate"><span class="pre">TypeDispatch.__call__</span></code> becomes an identity function.  In the below example, a tuple does not match any type annotations so a tuple is returned:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">(()),</span> <span class="p">())</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">f</span><span class="p">(()),</span> <span class="p">())</span> 
 </pre></div>
 </div>
 </div>
@@ -728,7 +747,7 @@
 <p>We extend the previous example by using <code class="docutils literal notranslate"><span class="pre">bases</span></code> to add an additional method that supports tuples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_tup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_tup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">TypeDispatch</span><span class="p">(</span><span class="n">m_tup</span><span class="p">,</span> <span class="n">bases</span><span class="o">=</span><span class="n">t</span><span class="p">)</span>
 
 <span class="k">class</span> <span class="nc">A2</span><span class="p">:</span> <span class="n">f</span> <span class="o">=</span> <span class="n">t2</span>
@@ -749,7 +768,7 @@
 <p>You can use <code class="docutils literal notranslate"><span class="pre">TypeDispatch</span></code> when defining class methods too:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_nin</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:(</span><span class="nb">str</span><span class="p">,</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)):</span> <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">m_nin</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:(</span><span class="nb">str</span><span class="p">,</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">)):</span> <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;1&#39;</span>
 <span class="k">def</span> <span class="nf">m_bll</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="nb">bool</span><span class="p">):</span> <span class="bp">cls</span><span class="o">.</span><span class="n">foo</span><span class="o">=</span><span class="s1">&#39;a&#39;</span>
 <span class="k">def</span> <span class="nf">m_num</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Number</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
 
@@ -774,7 +793,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@typedispatch</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nd">@typedispatch</span>
 <span class="k">def</span> <span class="nf">f_td_test</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="si">}{</span><span class="n">y</span><span class="si">}</span><span class="s1">&#39;</span>
 <span class="nd">@typedispatch</span>
 <span class="k">def</span> <span class="nf">f_td_test</span><span class="p">(</span><span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
@@ -797,7 +816,7 @@
 <p>You can use <code class="docutils literal notranslate"><span class="pre">typedispatch</span></code> with <code class="docutils literal notranslate"><span class="pre">classmethod</span></code> and <code class="docutils literal notranslate"><span class="pre">staticmethod</span></code> decorator</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="nd">@typedispatch</span>
     <span class="k">def</span> <span class="nf">f_td_test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span><span class="n">numbers</span><span class="o">.</span><span class="n">Integral</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span>
     <span class="nd">@typedispatch</span>
@@ -830,7 +849,7 @@
 <p>This works both for plain python classes:…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mk_class</span><span class="p">(</span><span class="s1">&#39;_T1&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>   <span class="c1"># mk_class is a fastai utility that constructs a class.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mk_class</span><span class="p">(</span><span class="s1">&#39;_T1&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>   <span class="c1"># mk_class is a fastai utility that constructs a class.</span>
 <span class="k">class</span> <span class="nc">_T2</span><span class="p">(</span><span class="n">_T1</span><span class="p">):</span> <span class="k">pass</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">_T1</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -847,7 +866,7 @@
 <p>…as well as for arrays and tensors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_T1</span><span class="p">(</span><span class="n">ndarray</span><span class="p">):</span> <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_T1</span><span class="p">(</span><span class="n">ndarray</span><span class="p">):</span> <span class="k">pass</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">_T1</span><span class="p">)</span>
@@ -862,7 +881,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_T</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_T</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">pass</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">_T</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">retain_type</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="n">_T</span><span class="p">)</span>
@@ -874,7 +893,7 @@
 <p>If <code class="docutils literal notranslate"><span class="pre">old</span></code> has a <code class="docutils literal notranslate"><span class="pre">_meta</span></code> attribute, its content is passed when casting <code class="docutils literal notranslate"><span class="pre">new</span></code> to the type of <code class="docutils literal notranslate"><span class="pre">old</span></code>.  In the below example, only the attribute <code class="docutils literal notranslate"><span class="pre">a</span></code>, but not <code class="docutils literal notranslate"><span class="pre">other_attr</span></code> is kept, because <code class="docutils literal notranslate"><span class="pre">other_attr</span></code> is not in <code class="docutils literal notranslate"><span class="pre">_meta</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_A</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_A</span><span class="p">():</span>
     <span class="n">set_meta</span> <span class="o">=</span> <span class="n">default_set_meta</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="o">=</span><span class="n">t</span>
 
@@ -897,7 +916,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">T</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">pass</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">T</span><span class="p">(</span><span class="nb">tuple</span><span class="p">):</span> <span class="k">pass</span>
 
 <span class="n">t1</span><span class="p">,</span><span class="n">t2</span> <span class="o">=</span> <span class="n">retain_types</span><span class="p">((</span><span class="mi">1</span><span class="p">,(</span><span class="mi">1</span><span class="p">,(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))))))</span>
 <span class="n">test_eq_type</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -914,7 +933,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">explode_types</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))))),</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">{</span><span class="n">T</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">{</span><span class="n">T</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">int</span><span class="p">]}]}]})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test_eq</span><span class="p">(</span><span class="n">explode_types</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="n">T</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))))),</span> <span class="p">{</span><span class="nb">tuple</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">{</span><span class="n">T</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="p">{</span><span class="n">T</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">int</span><span class="p">]}]}]})</span>
 </pre></div>
 </div>
 </div>
