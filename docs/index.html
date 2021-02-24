@@ -235,12 +235,7 @@
 <h3>Hiding Cells<a class="headerlink" href="#hiding-cells" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">#hide</span></code> can be used to hide an entire cell.</p>
 <p><code class="docutils literal notranslate"><span class="pre">#hide-input</span></code> can be used to only hide the input.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;you should only see the input&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>you should only see the input
 </pre></div>
@@ -248,14 +243,10 @@
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">#hide-output</span></code> can be used to only hide the output.</p>
-<div class="cell docutils container">
+<div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;you should only see the output&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>you should only see the output
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#hide-output</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;you should only see the output&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -264,27 +255,9 @@
 <div class="section" id="collapsing-cells">
 <h3>Collapsing Cells<a class="headerlink" href="#collapsing-cells" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Placing <code class="docutils literal notranslate"><span class="pre">#collapse_input</span> <span class="pre">open</span></code> in a code cell will include your code under a collapsable element that is <strong>open</strong> by default.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collapse_input open</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;This code cell is not collapsed by default but you can collapse it to hide it from view!&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Note that the output always shows with `</span><span class="si">%c</span><span class="s2">ollapse_input`.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This code cell is not collapsed by default but you can collapse it to hide it from view!
-Note that the output always shows with `%collapse_input`.
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
 <li><p>Placing <code class="docutils literal notranslate"><span class="pre">#collapse_input</span></code> in a code cell will include your code in a collapsable element that is <strong>closed</strong> by default.  For example:</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#collapse_input</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The code cell that produced this output is collapsed by default but you can expand it!&#39;</span><span class="p">)</span>

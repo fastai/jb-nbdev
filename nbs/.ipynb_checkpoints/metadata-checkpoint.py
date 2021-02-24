@@ -3,7 +3,7 @@
 # Poopulate cell metadata by using cell comments.  
 
 from fastcore.all import *
-from nbdev.export2html import (_re_show_doc, _re_hide_input, _re_hide_output, _re_hide, _re_cell_to_remove,
+from nbdev.export2html import (_re_show_doc, _re_hide_input, _re_hide_output, _re_hide, _re_cell_to_remove, _mk_flag_re,
                               _re_cell_to_collapse_closed, _re_cell_to_collapse_output, check_re_multi, check_re)
 from nbdev.export import check_re_multi
 import glob
@@ -32,9 +32,12 @@ def hide(cell):
     elif check_re_multi(cell, [_re_hide, _re_cell_to_remove]): upd_metadata(cell, 'remove-cell')
     return cell
 
+
+_re_cell_to_collapse_input = _mk_flag_re('(collapse_input|collapse-input)', 0, "Cell with #collapse_input")
+
 def collapse_cells(cell):
     "Add a collapse button to inputs or outputs of `cell` in either the open or closed position"
-    if check_re(cell, _re_cell_to_collapse_closed): upd_metadata(cell,'hide-input')
+    if check_re(cell, _re_cell_to_collapse_input): upd_metadata(cell,'hide-input')
 #     elif check_re(cell, _re_cell_to_collapse_open): upd_metadata(cell,'collapse_show')  THIS doesn't appear to be supported.
     elif check_re(cell, _re_cell_to_collapse_output): upd_metadata(cell,'hide-output')
     return cell
