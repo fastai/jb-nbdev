@@ -16,3 +16,18 @@ Things I like
 
 Things I don't like
 - Built on sphinx which is a much harder to understand documentation system compared to a static site generator. 
+
+
+How to make it work
+- put .gitignore (to ignore the temporary build assets), _config.yml, toc.yml in your nbs folder
+- in the notebooks folder: `jb build .`
+- copy the HTML over to the docs: `cp -r _build/html/* ../docs`
+- Make sure there is a `.nojekyll` file in the docs folder.
+- Enable gh pages in settings per usual 
+
+TODO:
+
+1. Create a script for the build
+2. Propagate nbdev comments/flags into metadata recognized by jupyterbook (ex: Show//Hide Cells)
+3. Looks like certain things are lost like the auto-linking?  Probably need to do some kind of post-processing
+4. ...
