@@ -40,3 +40,7 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - html_image
+
+sphinx:
+    config:
+        html_theme: quantecon_book_theme
